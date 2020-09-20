@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-09-20T19:32:23Z" name="My test suite" finished-at="2020-09-20T19:32:27Z" duration-ms="4312">
+    <groups>
+    </groups>
+    <test started-at="2020-09-20T19:32:23Z" name="My first test" finished-at="2020-09-20T19:32:27Z" duration-ms="4312">
+      <class name="com.automation.training.tests.WikiTests">
+        <test-method is-config="true" signature="beforeSuite(java.lang.String)[pri:0, instance:com.automation.training.tests.WikiTests@794cb805]" started-at="2020-09-20T14:32:13Z" name="beforeSuite" finished-at="2020-09-20T14:32:23Z" duration-ms="9864" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method signature="testWikiSearch()[pri:0, instance:com.automation.training.tests.WikiTests@794cb805]" started-at="2020-09-20T14:32:23Z" name="testWikiSearch" finished-at="2020-09-20T14:32:27Z" duration-ms="4306" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWikiSearch -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.automation.training.tests.WikiTests@794cb805]" started-at="2020-09-20T14:32:32Z" name="afterSuite" finished-at="2020-09-20T14:32:32Z" duration-ms="103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.automation.training.tests.WikiTests -->
+    </test> <!-- My first test -->
+  </suite> <!-- My test suite -->
+</testng-results>
