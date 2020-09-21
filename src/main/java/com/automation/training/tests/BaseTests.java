@@ -17,7 +17,7 @@ public class BaseTests {
 	@Parameters({"browser"})
 	public void beforeSuite(String browser) {
 		myDriver = new MyDriver(browser);
-		wikiHome = new WikiHomePage(myDriver.getDriver());
+	//	wikiHome = new WikiHomePage(myDriver.getDriver());
 	}
 	
 	@AfterSuite(alwaysRun=true)

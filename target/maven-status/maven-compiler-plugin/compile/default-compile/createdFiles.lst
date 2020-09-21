@@ -1,0 +1,9 @@
+com/automation/training/MyDriver.class
+com/automation/training/App.class
+com/automation/training/tests/WikiTests.class
+com/automation/training/pages/WikiHomePage.class
+com/automation/training/AnnotationTests.class
+com/automation/training/pages/BasePage.class
+com/automation/training/tests/BaseTests.class
+com/automation/training/MyCoolListener.class
+com/automation/training/pages/ArticlePage.class

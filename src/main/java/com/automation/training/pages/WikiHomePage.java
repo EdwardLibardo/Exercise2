@@ -7,9 +7,9 @@ import org.openqa.selenium.support.FindBy;
 public class WikiHomePage extends BasePage{
 	
 	 
-	public WikiHomePage(WebDriver driver) {
+	public WikiHomePage(WebDriver driver , String url) {
 		super(driver);
-		driver.get("http://wikipedia.org");
+		driver.get(url);
 	}
 
 	@FindBy(id="searchInput")
