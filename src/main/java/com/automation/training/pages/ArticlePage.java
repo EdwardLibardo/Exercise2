@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.security.Key;
-
 public class ArticlePage extends BasePage {
 
     public ArticlePage(WebDriver driver) {
@@ -26,9 +24,10 @@ public class ArticlePage extends BasePage {
         return pageTitle.getText();
     }
 
-    public void search(String text) {
+    public SearchResultsSpecialPage search(String text) {
         searchTextBox.sendKeys(text);
         searchTextBox.sendKeys(Keys.ENTER);
+        return new SearchResultsSpecialPage(getDriver());
     }
 
 }
