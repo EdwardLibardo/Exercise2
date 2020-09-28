@@ -1,15 +1,14 @@
 package espn.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 
 public class MainPage extends BasePage {
@@ -57,7 +56,6 @@ public class MainPage extends BasePage {
     private WebElement _userNameTextBox;
 
     private WebDriver driver;
-    private String _userName;
     private String _password;
     private String _email;
 
@@ -85,17 +83,17 @@ public class MainPage extends BasePage {
     public MainPage creatingTheAccount(String firstName, String lastName, String email, String pass) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 8);
         wait.until(ExpectedConditions.elementToBeClickable(_firstNameTextBox)).sendKeys(firstName);
-        _userName = firstName;
         _password = pass;
-        String randomForEmail = null;
-        Random r = new Random();
-        String alphabet = "12345xyabfz";
-        for (int i = 0; i < 25; i++) {
-            randomForEmail = randomForEmail + alphabet.charAt(r.nextInt(alphabet.length()));
-        }
+       // String randomForEmail = null;
+        //Random r = new Random();
+        //String alphabet = "12345xyabfz";
+
+      //  for (int i = 0; i < 25; i++) {
+        //    randomForEmail = randomForEmail + alphabet.charAt(r.nextInt(alphabet.length()));
+       // }
         _lastNameTextBox.sendKeys(lastName);
-        _email = randomForEmail + email;
-        _emailAddressTextBox.sendKeys(_email);
+        _emailAddressTextBox.sendKeys(randomEmail(email));
+        //_email = randomForEmail + email;
         _passtextBox.sendKeys(pass);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
@@ -104,12 +102,12 @@ public class MainPage extends BasePage {
         return new MainPage(driver);
     }
 
-    public MainPage verifyIfTheUserIsLoggedIn() {
+    public MainPage verifyIfTheUserIsLoggedIn(String name) {
         driver.navigate().refresh();
         WebDriverWait wait = new WebDriverWait(driver, 13);
         wait.until(ExpectedConditions.visibilityOf(_avatar)).click();
         String actualString = _userLoggedIn.getText();
-        Assert.assertTrue(actualString.contains("Welcome" + _userName + "!"));
+        Assert.assertTrue(actualString.contains("Welcome" + name + "!"));
         return new MainPage(driver);
     }
 
@@ -152,5 +150,15 @@ public class MainPage extends BasePage {
         _passtextBox.sendKeys(_password);
         _confirmBtn.click();
         return new MainPage(driver);
+    }
+
+    public String randomEmail(String email) {
+        String randomForEmail = null;
+        Random r = new Random();
+        String alphabet = "12345xyabfz";
+        for (int i = 0; i < 25; i++) {
+            randomForEmail = randomForEmail + alphabet.charAt(r.nextInt(alphabet.length()));
+        }
+        return _email = randomForEmail + email;
     }
 }

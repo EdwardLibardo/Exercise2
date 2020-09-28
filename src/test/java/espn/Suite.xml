@@ -4,7 +4,7 @@
 	<parameter name="browser" value="chrome" />
 	<test name="My first test">
 		<classes>
-			<class name="com.automation.training.tests.WikiTests"/>
+			<class name="co.training.tests.WikiTests"/>
 		</classes>
 	</test>
 </suite>
