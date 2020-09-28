@@ -8,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.nio.charset.Charset;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class MainPage extends BasePage {
@@ -82,7 +82,7 @@ public class MainPage extends BasePage {
         return new MainPage(driver);
     }
 
-    public MainPage creatingTheAccount(String firstName, String lastName, String email, String pass) {
+    public MainPage creatingTheAccount(String firstName, String lastName, String email, String pass) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 8);
         wait.until(ExpectedConditions.elementToBeClickable(_firstNameTextBox)).sendKeys(firstName);
         _userName = firstName;
@@ -100,6 +100,7 @@ public class MainPage extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
         wait.until(ExpectedConditions.elementToBeClickable(_signUpSubmitbtn)).click();
+        Thread.sleep(5000);
         return new MainPage(driver);
     }
 

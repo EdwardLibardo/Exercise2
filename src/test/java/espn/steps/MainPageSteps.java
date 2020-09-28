@@ -17,7 +17,7 @@ public class MainPageSteps {
     }
 
     @When("^i create an account with with \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-    public void iCreateAnAccountWithWith(String firstName, String lastName, String email, String pass) {
+    public void iCreateAnAccountWithWith(String firstName, String lastName, String email, String pass) throws InterruptedException {
         mainPage.hoverOverAvatar();
         mainPage.clickOnSignUpButton();
         mainPage.creatingTheAccount(firstName, lastName, email, pass);

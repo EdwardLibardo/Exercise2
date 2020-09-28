@@ -1,5 +1,6 @@
 package espn.helpers;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,4 +17,14 @@ public class RunnerHelper {
         String _url = url;
         return driver;
     }
+
+    public WebDriver driver() {
+        return driver;
+    }
+
+    @After
+    public void tearDown() {
+        driver().quit();
+    }
+
 }
