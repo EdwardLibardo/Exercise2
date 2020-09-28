@@ -1,5 +1,6 @@
 package espn.steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +18,8 @@ public class MainPageSteps {
 
     @When("^i create an account with with \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
     public void iCreateAnAccountWithWith(String firstName, String lastName, String email, String pass) {
-        mainPage.hoverOverAvatarAndClickOnSignUpButton();
+        mainPage.hoverOverAvatar();
+        mainPage.clickOnSignUpButton();
         mainPage.creatingTheAccount(firstName, lastName, email, pass);
     }
 
@@ -26,4 +28,27 @@ public class MainPageSteps {
         mainPage.verifyIfTheUserIsLoggedIn();
     }
 
+    @And("^i click on the Log Out button$")
+    public void iClickOnTheLogOutButton() {
+        mainPage.hoverOverAvatar();
+        mainPage.clickOnLogOutButton();
+    }
+
+    @Then("^i am logged out$")
+    public void iAmLoggedOut() {
+        mainPage.verifyIfTheUserIsLoggedOut();
+    }
+
+    @And("^i delete the account$")
+    public void iDeleteTheAccount() {
+        mainPage.hoverOverAvatar();
+        mainPage.clickOnEspnProfile();
+        mainPage.deleteAccount();
+    }
+
+    @Then("^i am able to log in on the page$")
+    public void iAmAbleToLogInOnThePage() {
+        mainPage.hoverOverAvatar();
+        mainPage.logInAsAUser();
+    }
 }
